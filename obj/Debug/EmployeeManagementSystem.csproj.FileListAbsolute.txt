@@ -1,0 +1,11 @@
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\bin\Debug\EmployeeManagementSystem.exe.config
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\bin\Debug\EmployeeManagementSystem.exe
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\bin\Debug\EmployeeManagementSystem.pdb
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Properties.Resources.resources
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.GenerateResource.cache
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.exe
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.pdb
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.controlPanel.resources
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.AssemblyReference.cache
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Register.resources
