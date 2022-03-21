@@ -28,10 +28,11 @@ namespace EmployeeManagementSystem
         {
             try{
                 rg.Show();
+                
             }
-            catch(Exception ea)
+            catch(Exception eOpenRegister)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(eOpenRegister.Message);
             }
             
         }

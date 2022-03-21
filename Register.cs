@@ -15,6 +15,9 @@ namespace EmployeeManagementSystem
     {
         string path = "Data Source =DESKTOP-OR9TV6T;Initial Catalog=employeeManagementSystem;Integrated Security=True;";
         SqlConnection con;
+        SqlCommand cmd;
+        string gender = "";
+        string agreedToS = "";
 
         public Register()
         {
@@ -23,15 +26,48 @@ namespace EmployeeManagementSystem
             con = new SqlConnection(path);
         }
 
-        string agreedToS = "";
+       
+
         private void buttonRegister_Click(object sender, EventArgs e)
         {
+
+            if (textBoxFirstname.Text == "" || textBoxLastName.Text == "" || textBoxSector.Text == "" || textBoxEmail.Text == "" || textBoxAddress.Text == "" || textBoxNote.Text == "")
+            {
+
+            }
+            else
+            {
+                try
+                {
+
+                    if (radioButtonMale.Checked)
+                    {
+                        gender = "Male";
+                    }
+                    else if (radioButtonFemale.Checked)
+                    {
+                        gender = "Female";
+                    }
+                    else if (radioButtonOther.Checked)
+                    {
+                        gender = "Other";
+                    }
+
+                    con.Open();
+                    cmd = new SqlCommand("insert into Employee (employee_first_name, employee_last_name, employee_sector, employee_email, employee_address, employee_gender, employee_ToS, employee_note) values ('" + textBoxFirstname.Text + "', '" + textBoxLastName.Text + "', '" + textBoxSector.Text + "', '" + textBoxEmail.Text + "', '" + textBoxAddress.Text + "', '" + gender + "', '" + agreedToS + "', '" + textBoxNote.Text + "')", con);
+
+                }
+                catch (Exception e_database)
+                {
+                    MessageBox.Show(e_database.Message);
+                }
+            }
            
         }
 
-        private void checkBoxToSAgreed_CheckedChanged(object sender, EventArgs e)
+        private void Register_Load(object sender, EventArgs e)
         {
-            if (checkBoxToSAgreed.Checked)
+            if (checkBoxToSAgreed.Checked && (radioButtonMale.Checked == true || radioButtonFemale.Checked == true || radioButtonOther.Checked == true))
             {
                 buttonRegister.Enabled = true;
                 agreedToS = "Agreed";
@@ -40,22 +76,6 @@ namespace EmployeeManagementSystem
             {
                 buttonRegister.Enabled = false;
             }
-
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

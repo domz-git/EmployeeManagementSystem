@@ -30,30 +30,32 @@ namespace EmployeeManagementSystem
         private void InitializeComponent()
         {
             this.labelFirstName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFirstname = new System.Windows.Forms.TextBox();
             this.checkBoxToSAgreed = new System.Windows.Forms.CheckBox();
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.labelLastName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.textBoxSector = new System.Windows.Forms.TextBox();
             this.labelSector = new System.Windows.Forms.Label();
             this.labelGender = new System.Windows.Forms.Label();
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.radioButtonOther = new System.Windows.Forms.RadioButton();
             this.labelToS = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.labelAddress = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
             this.groupBoxRegisterForm = new System.Windows.Forms.GroupBox();
+            this.labelID = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBoxNote = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxNote = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxRegisterForm.SuspendLayout();
             this.groupBoxControls.SuspendLayout();
@@ -70,23 +72,23 @@ namespace EmployeeManagementSystem
             this.labelFirstName.TabIndex = 0;
             this.labelFirstName.Text = "First name:";
             // 
-            // textBox1
+            // textBoxFirstname
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxFirstname.AcceptsReturn = true;
+            this.textBoxFirstname.Location = new System.Drawing.Point(102, 35);
+            this.textBoxFirstname.Name = "textBoxFirstname";
+            this.textBoxFirstname.Size = new System.Drawing.Size(189, 20);
+            this.textBoxFirstname.TabIndex = 2;
             // 
             // checkBoxToSAgreed
             // 
             this.checkBoxToSAgreed.AutoSize = true;
-            this.checkBoxToSAgreed.Location = new System.Drawing.Point(102, 207);
+            this.checkBoxToSAgreed.Location = new System.Drawing.Point(102, 234);
             this.checkBoxToSAgreed.Name = "checkBoxToSAgreed";
             this.checkBoxToSAgreed.Size = new System.Drawing.Size(60, 17);
             this.checkBoxToSAgreed.TabIndex = 3;
             this.checkBoxToSAgreed.Text = "Agreed";
             this.checkBoxToSAgreed.UseVisualStyleBackColor = true;
-            this.checkBoxToSAgreed.CheckedChanged += new System.EventHandler(this.checkBoxToSAgreed_CheckedChanged);
             // 
             // radioButtonMale
             // 
@@ -109,19 +111,19 @@ namespace EmployeeManagementSystem
             this.labelLastName.TabIndex = 5;
             this.labelLastName.Text = "LastName:";
             // 
-            // textBox2
+            // textBoxLastName
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxLastName.Location = new System.Drawing.Point(102, 61);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(189, 20);
+            this.textBoxLastName.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxSector
             // 
-            this.textBox3.Location = new System.Drawing.Point(102, 87);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 20);
-            this.textBox3.TabIndex = 8;
+            this.textBoxSector.Location = new System.Drawing.Point(102, 87);
+            this.textBoxSector.Name = "textBoxSector";
+            this.textBoxSector.Size = new System.Drawing.Size(189, 20);
+            this.textBoxSector.TabIndex = 8;
             // 
             // labelSector
             // 
@@ -169,7 +171,7 @@ namespace EmployeeManagementSystem
             // 
             this.labelToS.AutoSize = true;
             this.labelToS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelToS.Location = new System.Drawing.Point(17, 206);
+            this.labelToS.Location = new System.Drawing.Point(17, 233);
             this.labelToS.Name = "labelToS";
             this.labelToS.Size = new System.Drawing.Size(36, 15);
             this.labelToS.TabIndex = 12;
@@ -182,22 +184,22 @@ namespace EmployeeManagementSystem
             this.textBoxEmail.Size = new System.Drawing.Size(189, 20);
             this.textBoxEmail.TabIndex = 14;
             // 
-            // label1
+            // labelEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 15);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Email:";
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(17, 118);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(48, 15);
+            this.labelEmail.TabIndex = 13;
+            this.labelEmail.Text = "Email:";
             // 
-            // textBox4
+            // textBoxAddress
             // 
-            this.textBox4.Location = new System.Drawing.Point(102, 139);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(189, 20);
-            this.textBox4.TabIndex = 16;
+            this.textBoxAddress.Location = new System.Drawing.Point(102, 139);
+            this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.Size = new System.Drawing.Size(189, 20);
+            this.textBoxAddress.TabIndex = 16;
             // 
             // labelAddress
             // 
@@ -233,7 +235,6 @@ namespace EmployeeManagementSystem
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonUpdate
             // 
@@ -251,7 +252,6 @@ namespace EmployeeManagementSystem
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonUpdate.UseVisualStyleBackColor = false;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonRegister
             // 
@@ -273,19 +273,21 @@ namespace EmployeeManagementSystem
             // 
             // groupBoxRegisterForm
             // 
-            this.groupBoxRegisterForm.Controls.Add(this.textBox4);
+            this.groupBoxRegisterForm.Controls.Add(this.labelID);
+            this.groupBoxRegisterForm.Controls.Add(this.textBoxID);
+            this.groupBoxRegisterForm.Controls.Add(this.textBoxAddress);
             this.groupBoxRegisterForm.Controls.Add(this.labelFirstName);
-            this.groupBoxRegisterForm.Controls.Add(this.textBox1);
+            this.groupBoxRegisterForm.Controls.Add(this.textBoxFirstname);
             this.groupBoxRegisterForm.Controls.Add(this.checkBoxToSAgreed);
             this.groupBoxRegisterForm.Controls.Add(this.radioButtonMale);
             this.groupBoxRegisterForm.Controls.Add(this.labelAddress);
             this.groupBoxRegisterForm.Controls.Add(this.labelLastName);
             this.groupBoxRegisterForm.Controls.Add(this.textBoxEmail);
-            this.groupBoxRegisterForm.Controls.Add(this.textBox2);
-            this.groupBoxRegisterForm.Controls.Add(this.label1);
+            this.groupBoxRegisterForm.Controls.Add(this.textBoxLastName);
+            this.groupBoxRegisterForm.Controls.Add(this.labelEmail);
             this.groupBoxRegisterForm.Controls.Add(this.labelSector);
             this.groupBoxRegisterForm.Controls.Add(this.labelToS);
-            this.groupBoxRegisterForm.Controls.Add(this.textBox3);
+            this.groupBoxRegisterForm.Controls.Add(this.textBoxSector);
             this.groupBoxRegisterForm.Controls.Add(this.radioButtonOther);
             this.groupBoxRegisterForm.Controls.Add(this.labelGender);
             this.groupBoxRegisterForm.Controls.Add(this.radioButtonFemale);
@@ -295,6 +297,23 @@ namespace EmployeeManagementSystem
             this.groupBoxRegisterForm.TabIndex = 20;
             this.groupBoxRegisterForm.TabStop = false;
             this.groupBoxRegisterForm.Text = "Register Form";
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelID.Location = new System.Drawing.Point(17, 205);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(25, 15);
+            this.labelID.TabIndex = 17;
+            this.labelID.Text = "ID:";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(102, 200);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(189, 20);
+            this.textBoxID.TabIndex = 18;
             // 
             // groupBoxControls
             // 
@@ -317,7 +336,7 @@ namespace EmployeeManagementSystem
             // 
             // groupBoxNote
             // 
-            this.groupBoxNote.Controls.Add(this.textBox5);
+            this.groupBoxNote.Controls.Add(this.textBoxNote);
             this.groupBoxNote.Location = new System.Drawing.Point(331, 186);
             this.groupBoxNote.Name = "groupBoxNote";
             this.groupBoxNote.Size = new System.Drawing.Size(574, 94);
@@ -325,13 +344,13 @@ namespace EmployeeManagementSystem
             this.groupBoxNote.TabStop = false;
             this.groupBoxNote.Text = "Note";
             // 
-            // textBox5
+            // textBoxNote
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 19);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(562, 69);
-            this.textBox5.TabIndex = 18;
+            this.textBoxNote.Location = new System.Drawing.Point(6, 19);
+            this.textBoxNote.Multiline = true;
+            this.textBoxNote.Name = "textBoxNote";
+            this.textBoxNote.Size = new System.Drawing.Size(562, 69);
+            this.textBoxNote.TabIndex = 18;
             // 
             // Register
             // 
@@ -362,20 +381,20 @@ namespace EmployeeManagementSystem
 
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Button buttonRegister;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFirstname;
         private System.Windows.Forms.CheckBox checkBoxToSAgreed;
         private System.Windows.Forms.RadioButton radioButtonMale;
         private System.Windows.Forms.Label labelLastName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.TextBox textBoxSector;
         private System.Windows.Forms.Label labelSector;
         private System.Windows.Forms.Label labelGender;
         private System.Windows.Forms.RadioButton radioButtonFemale;
         private System.Windows.Forms.RadioButton radioButtonOther;
         private System.Windows.Forms.Label labelToS;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label labelAddress;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonUpdate;
@@ -384,6 +403,8 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.GroupBox groupBoxControls;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.GroupBox groupBoxNote;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxNote;
+        private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.TextBox textBoxID;
     }
 }
