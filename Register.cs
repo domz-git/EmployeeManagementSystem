@@ -18,6 +18,7 @@ namespace EmployeeManagementSystem
         SqlCommand cmd;
         string gender = "";
         string agreedToS = "";
+        
 
         public Register()
         {
@@ -31,15 +32,16 @@ namespace EmployeeManagementSystem
         private void buttonRegister_Click(object sender, EventArgs e)
         {
 
-            if (textBoxFirstname.Text == "" || textBoxLastName.Text == "" || textBoxSector.Text == "" || textBoxEmail.Text == "" || textBoxAddress.Text == "" || textBoxNote.Text == "")
+            if (textBoxFirstname.Text == "" || textBoxLastName.Text == "" || textBoxSector.Text == "" || textBoxEmail.Text == "" || textBoxAddress.Text == "" || textBoxNote.Text == "" || (radioButtonMale.Checked == false && radioButtonFemale.Checked == false && radioButtonOther.Checked == false))
             {
-
+                MessageBox.Show("Field cannot be empty!");
             }
             else
             {
                 try
                 {
 
+                    string startDate = monthCalendarRegister.SelectionRange.Start.ToShortDateString();
                     if (radioButtonMale.Checked)
                     {
                         gender = "Male";
@@ -51,11 +53,16 @@ namespace EmployeeManagementSystem
                     else if (radioButtonOther.Checked)
                     {
                         gender = "Other";
+                        
+                      
                     }
 
                     con.Open();
-                    cmd = new SqlCommand("insert into Employee (employee_first_name, employee_last_name, employee_sector, employee_email, employee_address, employee_gender, employee_ToS, employee_note) values ('" + textBoxFirstname.Text + "', '" + textBoxLastName.Text + "', '" + textBoxSector.Text + "', '" + textBoxEmail.Text + "', '" + textBoxAddress.Text + "', '" + gender + "', '" + agreedToS + "', '" + textBoxNote.Text + "')", con);
-
+                    cmd = new SqlCommand("insert into Employee (employee_first_name, employee_last_name, employee_sector, employee_email, employee_address, employee_gender, employee_ToS, employee_note, start_date) values ('" + textBoxFirstname.Text + "', '" + textBoxLastName.Text + "', '" + textBoxSector.Text + "', '" + textBoxEmail.Text + "', '" + textBoxAddress.Text + "', '" + gender + "', '" + agreedToS + "', '" + textBoxNote.Text + "', '" + startDate + "')", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Successful data entry!");
+                    clear();
                 }
                 catch (Exception e_database)
                 {
@@ -65,9 +72,24 @@ namespace EmployeeManagementSystem
            
         }
 
-        private void Register_Load(object sender, EventArgs e)
+        public void clear()
         {
-            if (checkBoxToSAgreed.Checked && (radioButtonMale.Checked == true || radioButtonFemale.Checked == true || radioButtonOther.Checked == true))
+            textBoxFirstname.Text = "";
+            textBoxLastName.Text = "";
+            textBoxSector.Text = "";
+            textBoxEmail.Text = "";
+            textBoxAddress.Text = "";
+            radioButtonMale.Checked = false;
+            radioButtonFemale.Checked = false;
+            radioButtonOther.Checked = false;
+            textBoxID.Text = "";
+            checkBoxToSAgreed.Checked = false;
+            textBoxNote.Text = "";
+        }
+
+        private void checkBoxToSAgreed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxToSAgreed.Checked)
             {
                 buttonRegister.Enabled = true;
                 agreedToS = "Agreed";
@@ -77,5 +99,12 @@ namespace EmployeeManagementSystem
                 buttonRegister.Enabled = false;
             }
         }
-    }
+
+        private void Register_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        }
 }

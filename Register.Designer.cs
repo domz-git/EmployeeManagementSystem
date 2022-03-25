@@ -53,7 +53,7 @@ namespace EmployeeManagementSystem
             this.labelID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.groupBoxControls = new System.Windows.Forms.GroupBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendarRegister = new System.Windows.Forms.MonthCalendar();
             this.groupBoxNote = new System.Windows.Forms.GroupBox();
             this.textBoxNote = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,6 +89,7 @@ namespace EmployeeManagementSystem
             this.checkBoxToSAgreed.TabIndex = 3;
             this.checkBoxToSAgreed.Text = "Agreed";
             this.checkBoxToSAgreed.UseVisualStyleBackColor = true;
+            this.checkBoxToSAgreed.CheckedChanged += new System.EventHandler(this.checkBoxToSAgreed_CheckedChanged);
             // 
             // radioButtonMale
             // 
@@ -239,6 +240,7 @@ namespace EmployeeManagementSystem
             // buttonUpdate
             // 
             this.buttonUpdate.BackColor = System.Drawing.Color.Green;
+            this.buttonUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -328,11 +330,12 @@ namespace EmployeeManagementSystem
             this.groupBoxControls.TabStop = false;
             this.groupBoxControls.Text = "Controls";
             // 
-            // monthCalendar1
+            // monthCalendarRegister
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(678, 18);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 22;
+            this.monthCalendarRegister.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
+            this.monthCalendarRegister.Location = new System.Drawing.Point(678, 18);
+            this.monthCalendarRegister.Name = "monthCalendarRegister";
+            this.monthCalendarRegister.TabIndex = 22;
             // 
             // groupBoxNote
             // 
@@ -359,14 +362,16 @@ namespace EmployeeManagementSystem
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(923, 476);
             this.Controls.Add(this.groupBoxNote);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.monthCalendarRegister);
             this.Controls.Add(this.groupBoxControls);
             this.Controls.Add(this.groupBoxRegisterForm);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
-            this.Load += new System.EventHandler(this.Register_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxRegisterForm.ResumeLayout(false);
             this.groupBoxRegisterForm.PerformLayout();
@@ -401,7 +406,7 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.GroupBox groupBoxRegisterForm;
         private System.Windows.Forms.GroupBox groupBoxControls;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar monthCalendarRegister;
         private System.Windows.Forms.GroupBox groupBoxNote;
         private System.Windows.Forms.TextBox textBoxNote;
         private System.Windows.Forms.Label labelID;
