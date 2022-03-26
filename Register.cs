@@ -17,7 +17,11 @@ namespace EmployeeManagementSystem
         SqlConnection con;
         SqlCommand cmd;
         string gender = "";
+        string gender_Fetch = "";
         string agreedToS = "";
+        string agreedToS_Fetch = "";
+        string startDate = "";
+        int id;
         
 
         public Register()
@@ -25,6 +29,7 @@ namespace EmployeeManagementSystem
             InitializeComponent();
             buttonRegister.Enabled = false;
             con = new SqlConnection(path);
+            display();
         }
 
        
@@ -41,7 +46,7 @@ namespace EmployeeManagementSystem
                 try
                 {
 
-                    string startDate = monthCalendarRegister.SelectionRange.Start.ToShortDateString();
+                    startDate = monthCalendarRegister.SelectionRange.Start.ToShortDateString();
                     if (radioButtonMale.Checked)
                     {
                         gender = "Male";
@@ -63,6 +68,7 @@ namespace EmployeeManagementSystem
                     con.Close();
                     MessageBox.Show("Successful data entry!");
                     clear();
+                    display();
                 }
                 catch (Exception e_database)
                 {
@@ -87,6 +93,23 @@ namespace EmployeeManagementSystem
             textBoxNote.Text = "";
         }
 
+        public void display()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                con.Open();
+                SqlDataAdapter adpt = new SqlDataAdapter("select * from Employee", con);
+                adpt.Fill(dt);
+                dataGridViewRegister.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception e_Display)
+            {
+                MessageBox.Show(e_Display.Message);
+            }
+        }
+
         private void checkBoxToSAgreed_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxToSAgreed.Checked)
@@ -106,5 +129,73 @@ namespace EmployeeManagementSystem
             this.Hide();
         }
 
+        private void dataGridViewRegister_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id = int.Parse(dataGridViewRegister.Rows[e.RowIndex].Cells[0].Value.ToString());
+            textBoxID.Text = id.ToString();
+            textBoxFirstname.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBoxLastName.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBoxSector.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[3].Value.ToString();
+            textBoxEmail.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBoxAddress.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[5].Value.ToString();
+            gender_Fetch = dataGridViewRegister.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+            if (gender_Fetch == "Male")
+            {
+                radioButtonMale.Checked = true;
+            } else if (gender_Fetch == "Female")
+            {
+                radioButtonFemale.Checked = true;
+            }
+            else
+            {
+                radioButtonOther.Checked = true;
+            }
+
+            agreedToS_Fetch = dataGridViewRegister.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+            if (agreedToS_Fetch == "Agreed")
+            {
+                checkBoxToSAgreed.Checked = true;
+            }
+            textBoxNote.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[8].Value.ToString();
+            startDate = dataGridViewRegister.Rows[e.RowIndex].Cells[9].Value.ToString();
+            labelDataStartDate.Text = startDate;
+
         }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                startDate = monthCalendarRegister.SelectionRange.Start.ToShortDateString();
+                if (radioButtonMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (radioButtonFemale.Checked)
+                {
+                    gender = "Female";
+                }
+                else if (radioButtonOther.Checked)
+                {
+                    gender = "Other";
+
+
+                }
+
+                con.Open();
+                cmd = new SqlCommand("update Employee set employee_first_name = '"+textBoxFirstname.Text+ "', employee_last_name = '" + textBoxLastName.Text + "', employee_sector = '" + textBoxSector.Text + "', employee_email = '" + textBoxEmail.Text + "', employee_address = '" + textBoxAddress.Text + "', employee_gender = '" + gender + "', employee_ToS = '" + agreedToS + "', employee_note = '" + textBoxNote.Text + "', start_date = '" + startDate + "' where employee_id = '"+id+"'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                display();
+                MessageBox.Show("Data successfuly updated!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 }

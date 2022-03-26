@@ -45,7 +45,7 @@ namespace EmployeeManagementSystem
             this.labelEmail = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.labelAddress = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewRegister = new System.Windows.Forms.DataGridView();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
@@ -56,7 +56,9 @@ namespace EmployeeManagementSystem
             this.monthCalendarRegister = new System.Windows.Forms.MonthCalendar();
             this.groupBoxNote = new System.Windows.Forms.GroupBox();
             this.textBoxNote = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.labelStartDate = new System.Windows.Forms.Label();
+            this.labelDataStartDate = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegister)).BeginInit();
             this.groupBoxRegisterForm.SuspendLayout();
             this.groupBoxControls.SuspendLayout();
             this.groupBoxNote.SuspendLayout();
@@ -212,13 +214,14 @@ namespace EmployeeManagementSystem
             this.labelAddress.TabIndex = 15;
             this.labelAddress.Text = "Address:";
             // 
-            // dataGridView1
+            // dataGridViewRegister
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 286);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(887, 178);
-            this.dataGridView1.TabIndex = 17;
+            this.dataGridViewRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRegister.Location = new System.Drawing.Point(24, 286);
+            this.dataGridViewRegister.Name = "dataGridViewRegister";
+            this.dataGridViewRegister.Size = new System.Drawing.Size(887, 178);
+            this.dataGridViewRegister.TabIndex = 17;
+            this.dataGridViewRegister.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegister_CellDoubleClick);
             // 
             // buttonDelete
             // 
@@ -254,6 +257,7 @@ namespace EmployeeManagementSystem
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonRegister
             // 
@@ -312,6 +316,7 @@ namespace EmployeeManagementSystem
             // 
             // textBoxID
             // 
+            this.textBoxID.Enabled = false;
             this.textBoxID.Location = new System.Drawing.Point(102, 200);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(189, 20);
@@ -355,30 +360,50 @@ namespace EmployeeManagementSystem
             this.textBoxNote.Size = new System.Drawing.Size(562, 69);
             this.textBoxNote.TabIndex = 18;
             // 
+            // labelStartDate
+            // 
+            this.labelStartDate.AutoSize = true;
+            this.labelStartDate.Location = new System.Drawing.Point(580, 38);
+            this.labelStartDate.Name = "labelStartDate";
+            this.labelStartDate.Size = new System.Drawing.Size(58, 13);
+            this.labelStartDate.TabIndex = 24;
+            this.labelStartDate.Text = "Start Date:";
+            // 
+            // labelDataStartDate
+            // 
+            this.labelDataStartDate.AutoSize = true;
+            this.labelDataStartDate.Location = new System.Drawing.Point(580, 63);
+            this.labelDataStartDate.Name = "labelDataStartDate";
+            this.labelDataStartDate.Size = new System.Drawing.Size(0, 13);
+            this.labelDataStartDate.TabIndex = 25;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(923, 476);
+            this.Controls.Add(this.labelDataStartDate);
+            this.Controls.Add(this.labelStartDate);
             this.Controls.Add(this.groupBoxNote);
             this.Controls.Add(this.monthCalendarRegister);
             this.Controls.Add(this.groupBoxControls);
             this.Controls.Add(this.groupBoxRegisterForm);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewRegister);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegister)).EndInit();
             this.groupBoxRegisterForm.ResumeLayout(false);
             this.groupBoxRegisterForm.PerformLayout();
             this.groupBoxControls.ResumeLayout(false);
             this.groupBoxNote.ResumeLayout(false);
             this.groupBoxNote.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -401,7 +426,7 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.TextBox textBoxAddress;
         private System.Windows.Forms.Label labelAddress;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewRegister;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.GroupBox groupBoxRegisterForm;
@@ -411,5 +436,7 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.TextBox textBoxNote;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label labelStartDate;
+        private System.Windows.Forms.Label labelDataStartDate;
     }
 }
