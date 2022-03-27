@@ -46,9 +46,6 @@ namespace EmployeeManagementSystem
             this.textBoxAddress = new System.Windows.Forms.TextBox();
             this.labelAddress = new System.Windows.Forms.Label();
             this.dataGridViewRegister = new System.Windows.Forms.DataGridView();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonRegister = new System.Windows.Forms.Button();
             this.groupBoxRegisterForm = new System.Windows.Forms.GroupBox();
             this.labelID = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -58,6 +55,10 @@ namespace EmployeeManagementSystem
             this.textBoxNote = new System.Windows.Forms.TextBox();
             this.labelStartDate = new System.Windows.Forms.Label();
             this.labelDataStartDate = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRegister)).BeginInit();
             this.groupBoxRegisterForm.SuspendLayout();
             this.groupBoxControls.SuspendLayout();
@@ -223,60 +224,6 @@ namespace EmployeeManagementSystem
             this.dataGridViewRegister.TabIndex = 17;
             this.dataGridViewRegister.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRegister_CellDoubleClick);
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.Green;
-            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonDelete.Image = global::EmployeeManagementSystem.Properties.Resources.delete__1_;
-            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDelete.Location = new System.Drawing.Point(40, 114);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(153, 38);
-            this.buttonDelete.TabIndex = 19;
-            this.buttonDelete.Text = "Delete";
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.Green;
-            this.buttonUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonUpdate.Image = global::EmployeeManagementSystem.Properties.Resources.refresh;
-            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUpdate.Location = new System.Drawing.Point(40, 70);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(153, 38);
-            this.buttonUpdate.TabIndex = 18;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = false;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // buttonRegister
-            // 
-            this.buttonRegister.BackColor = System.Drawing.Color.Green;
-            this.buttonRegister.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegister.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonRegister.Image = global::EmployeeManagementSystem.Properties.Resources.diskette;
-            this.buttonRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRegister.Location = new System.Drawing.Point(40, 26);
-            this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(153, 38);
-            this.buttonRegister.TabIndex = 1;
-            this.buttonRegister.Text = "Register";
-            this.buttonRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRegister.UseVisualStyleBackColor = false;
-            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
-            // 
             // groupBoxRegisterForm
             // 
             this.groupBoxRegisterForm.Controls.Add(this.labelID);
@@ -324,13 +271,14 @@ namespace EmployeeManagementSystem
             // 
             // groupBoxControls
             // 
+            this.groupBoxControls.Controls.Add(this.buttonClear);
             this.groupBoxControls.Controls.Add(this.buttonDelete);
             this.groupBoxControls.Controls.Add(this.buttonRegister);
             this.groupBoxControls.Controls.Add(this.buttonUpdate);
             this.groupBoxControls.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBoxControls.Location = new System.Drawing.Point(331, 12);
             this.groupBoxControls.Name = "groupBoxControls";
-            this.groupBoxControls.Size = new System.Drawing.Size(234, 168);
+            this.groupBoxControls.Size = new System.Drawing.Size(335, 168);
             this.groupBoxControls.TabIndex = 21;
             this.groupBoxControls.TabStop = false;
             this.groupBoxControls.Text = "Controls";
@@ -345,9 +293,9 @@ namespace EmployeeManagementSystem
             // groupBoxNote
             // 
             this.groupBoxNote.Controls.Add(this.textBoxNote);
-            this.groupBoxNote.Location = new System.Drawing.Point(331, 186);
+            this.groupBoxNote.Location = new System.Drawing.Point(410, 186);
             this.groupBoxNote.Name = "groupBoxNote";
-            this.groupBoxNote.Size = new System.Drawing.Size(574, 94);
+            this.groupBoxNote.Size = new System.Drawing.Size(495, 94);
             this.groupBoxNote.TabIndex = 23;
             this.groupBoxNote.TabStop = false;
             this.groupBoxNote.Text = "Note";
@@ -357,13 +305,13 @@ namespace EmployeeManagementSystem
             this.textBoxNote.Location = new System.Drawing.Point(6, 19);
             this.textBoxNote.Multiline = true;
             this.textBoxNote.Name = "textBoxNote";
-            this.textBoxNote.Size = new System.Drawing.Size(562, 69);
+            this.textBoxNote.Size = new System.Drawing.Size(483, 69);
             this.textBoxNote.TabIndex = 18;
             // 
             // labelStartDate
             // 
             this.labelStartDate.AutoSize = true;
-            this.labelStartDate.Location = new System.Drawing.Point(580, 38);
+            this.labelStartDate.Location = new System.Drawing.Point(331, 186);
             this.labelStartDate.Name = "labelStartDate";
             this.labelStartDate.Size = new System.Drawing.Size(58, 13);
             this.labelStartDate.TabIndex = 24;
@@ -372,10 +320,83 @@ namespace EmployeeManagementSystem
             // labelDataStartDate
             // 
             this.labelDataStartDate.AutoSize = true;
-            this.labelDataStartDate.Location = new System.Drawing.Point(580, 63);
+            this.labelDataStartDate.Location = new System.Drawing.Point(331, 211);
             this.labelDataStartDate.Name = "labelDataStartDate";
             this.labelDataStartDate.Size = new System.Drawing.Size(0, 13);
             this.labelDataStartDate.TabIndex = 25;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Green;
+            this.buttonClear.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonClear.Image = global::EmployeeManagementSystem.Properties.Resources.refresh__2_;
+            this.buttonClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClear.Location = new System.Drawing.Point(116, 24);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(104, 38);
+            this.buttonClear.TabIndex = 20;
+            this.buttonClear.Text = "Clear Form";
+            this.buttonClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.Green;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonDelete.Image = global::EmployeeManagementSystem.Properties.Resources.delete__1_;
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDelete.Location = new System.Drawing.Point(6, 112);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(104, 38);
+            this.buttonDelete.TabIndex = 19;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonRegister
+            // 
+            this.buttonRegister.BackColor = System.Drawing.Color.Green;
+            this.buttonRegister.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRegister.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonRegister.Image = global::EmployeeManagementSystem.Properties.Resources.diskette;
+            this.buttonRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonRegister.Location = new System.Drawing.Point(6, 24);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(104, 38);
+            this.buttonRegister.TabIndex = 1;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.Green;
+            this.buttonUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonUpdate.Image = global::EmployeeManagementSystem.Properties.Resources.refresh;
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUpdate.Location = new System.Drawing.Point(6, 68);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(104, 38);
+            this.buttonUpdate.TabIndex = 18;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // Register
             // 
@@ -438,5 +459,6 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelStartDate;
         private System.Windows.Forms.Label labelDataStartDate;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

@@ -30,6 +30,9 @@ namespace EmployeeManagementSystem
             buttonRegister.Enabled = false;
             con = new SqlConnection(path);
             display();
+
+            buttonUpdate.Enabled = false;
+            buttonDelete.Enabled = false;
         }
 
        
@@ -162,6 +165,8 @@ namespace EmployeeManagementSystem
             startDate = dataGridViewRegister.Rows[e.RowIndex].Cells[9].Value.ToString();
             labelDataStartDate.Text = startDate;
 
+            buttonUpdate.Enabled = true;
+            buttonDelete.Enabled = true;
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -196,6 +201,35 @@ namespace EmployeeManagementSystem
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con.Open();
+                cmd = new SqlCommand("delete from Employee where employee_id = '" + id + "'", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                display();
+                MessageBox.Show("Data was successfuly deleted!");
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+           
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            clear();
+            buttonUpdate.Enabled = false;
+            buttonDelete.Enabled = false;
         }
     }
 }
