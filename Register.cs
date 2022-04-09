@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
 
 namespace EmployeeManagementSystem
 {
@@ -21,6 +22,7 @@ namespace EmployeeManagementSystem
         string agreedToS = "";
         string agreedToS_Fetch = "";
         string startDate = "";
+        System.Data.DataTable dt;
         int id;
         
 
@@ -100,7 +102,7 @@ namespace EmployeeManagementSystem
         {
             try
             {
-                DataTable dt = new DataTable();
+                dt = new System.Data.DataTable();
                 con.Open();
                 SqlDataAdapter adpt = new SqlDataAdapter("select * from Employee", con);
                 adpt.Fill(dt);
@@ -230,6 +232,52 @@ namespace EmployeeManagementSystem
             clear();
             buttonUpdate.Enabled = false;
             buttonDelete.Enabled = false;
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlDataAdapter adpt = new SqlDataAdapter("select * from Employee where employee_first_name like '%"+textBoxSearch.Text+ "%' or employee_last_name like '%" + textBoxSearch.Text + "%'", con);
+            dt = new System.Data.DataTable();
+            adpt.Fill(dt);
+            dataGridViewRegister.DataSource = dt;
+            con.Close();
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Workbook wb = excel.Workbooks.Add(XlSheetType.xlWorksheet);
+                Worksheet ws = (Worksheet)excel.ActiveSheet;
+                excel.Visible = true;
+
+                for (int i = 2; i <= dataGridViewRegister.Rows.Count; i++)
+                {
+                    for (int j = 1; j < 1; j++)
+                    {
+                        ws.Cells[i, j] = dataGridViewRegister.Rows[i - 2].Cells[j - 1].Value;
+                    }
+                }
+
+                for (int i = 1; i < dataGridViewRegister.Columns.Count + 1; i++)
+                {
+                    ws.Cells[1, i] = dataGridViewRegister.Columns[i - 1].HeaderText;
+                }
+
+                for (int i = 0; i < dataGridViewRegister.Columns.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewRegister.Columns.Count; j++)
+                    {
+                        ws.Cells[i + 2, j + 1] = dataGridViewRegister.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show(ea.Message);
+            }
         }
     }
 }

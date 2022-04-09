@@ -9,3 +9,4 @@ C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagem
 C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.controlPanel.resources
 C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.AssemblyReference.cache
 C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.Register.resources
+C:\Users\Dominik\source\repos\EmployeeManagementSystem\obj\Debug\EmployeeManagementSystem.csproj.ResolveComReference.cache
