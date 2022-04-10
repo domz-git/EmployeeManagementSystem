@@ -36,5 +36,13 @@ namespace EmployeeManagementSystem
             }
             
         }
+
+        private void controlPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+            Login ob = new Login();
+            ob.Show();
+        }
     }
 }

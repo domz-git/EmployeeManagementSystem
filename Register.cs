@@ -42,7 +42,7 @@ namespace EmployeeManagementSystem
         private void buttonRegister_Click(object sender, EventArgs e)
         {
 
-            if (textBoxFirstname.Text == "" || textBoxLastName.Text == "" || textBoxSector.Text == "" || textBoxEmail.Text == "" || textBoxAddress.Text == "" || textBoxNote.Text == "" || (radioButtonMale.Checked == false && radioButtonFemale.Checked == false && radioButtonOther.Checked == false))
+            if (textBoxFirstname.Text == "" || textBoxLastName.Text == "" || textBoxSector.Text == "" || textBoxEmail.Text == "" || textBoxAddress.Text == "" || textBoxNote.Text == "" || textBoxPassword.Text == "" || textBoxUsername.Text == "" || comboBoxType.SelectedItem.ToString() == "" || comboBoxStatus.SelectedItem.ToString() == "" || (radioButtonMale.Checked == false && radioButtonFemale.Checked == false && radioButtonOther.Checked == false))
             {
                 MessageBox.Show("Field cannot be empty!");
             }
@@ -68,7 +68,7 @@ namespace EmployeeManagementSystem
                     }
 
                     con.Open();
-                    cmd = new SqlCommand("insert into Employee (employee_first_name, employee_last_name, employee_sector, employee_email, employee_address, employee_gender, employee_ToS, employee_note, start_date) values ('" + textBoxFirstname.Text + "', '" + textBoxLastName.Text + "', '" + textBoxSector.Text + "', '" + textBoxEmail.Text + "', '" + textBoxAddress.Text + "', '" + gender + "', '" + agreedToS + "', '" + textBoxNote.Text + "', '" + startDate + "')", con);
+                    cmd = new SqlCommand("insert into Employee (employee_first_name, employee_last_name, employee_sector, employee_email, employee_address, employee_gender, employee_ToS, employee_note, start_date, employee_password, employee_username, account_type, account_status) values ('" + textBoxFirstname.Text + "', '" + textBoxLastName.Text + "', '" + textBoxSector.Text + "', '" + textBoxEmail.Text + "', '" + textBoxAddress.Text + "', '" + gender + "', '" + agreedToS + "', '" + textBoxNote.Text + "', '" + startDate + "', '" + textBoxPassword.Text + "', '" + textBoxUsername.Text + "', '" + comboBoxType.SelectedItem.ToString() + "', '" + comboBoxStatus.SelectedItem.ToString() + "')", con);
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Successful data entry!");
@@ -96,6 +96,10 @@ namespace EmployeeManagementSystem
             textBoxID.Text = "";
             checkBoxToSAgreed.Checked = false;
             textBoxNote.Text = "";
+            textBoxPassword.Text = "";
+            textBoxUsername.Text = "";
+            comboBoxType.SelectedItem = "";
+            comboBoxStatus.SelectedItem = "";
         }
 
         public void display()
@@ -144,6 +148,13 @@ namespace EmployeeManagementSystem
             textBoxEmail.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[4].Value.ToString();
             textBoxAddress.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[5].Value.ToString();
             gender_Fetch = dataGridViewRegister.Rows[e.RowIndex].Cells[6].Value.ToString();
+            agreedToS_Fetch = dataGridViewRegister.Rows[e.RowIndex].Cells[7].Value.ToString();
+            textBoxNote.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[8].Value.ToString();
+            startDate = dataGridViewRegister.Rows[e.RowIndex].Cells[9].Value.ToString();
+            textBoxPassword.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[10].Value.ToString();
+            textBoxUsername.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[11].Value.ToString();
+            comboBoxType.SelectedItem = dataGridViewRegister.Rows[e.RowIndex].Cells[12].Value.ToString();
+            comboBoxStatus.SelectedItem = dataGridViewRegister.Rows[e.RowIndex].Cells[13].Value.ToString();
 
             if (gender_Fetch == "Male")
             {
@@ -157,14 +168,13 @@ namespace EmployeeManagementSystem
                 radioButtonOther.Checked = true;
             }
 
-            agreedToS_Fetch = dataGridViewRegister.Rows[e.RowIndex].Cells[7].Value.ToString();
+            
 
             if (agreedToS_Fetch == "Agreed")
             {
                 checkBoxToSAgreed.Checked = true;
             }
-            textBoxNote.Text = dataGridViewRegister.Rows[e.RowIndex].Cells[8].Value.ToString();
-            startDate = dataGridViewRegister.Rows[e.RowIndex].Cells[9].Value.ToString();
+            
             labelDataStartDate.Text = startDate;
 
             buttonUpdate.Enabled = true;
@@ -193,7 +203,7 @@ namespace EmployeeManagementSystem
                 }
 
                 con.Open();
-                cmd = new SqlCommand("update Employee set employee_first_name = '"+textBoxFirstname.Text+ "', employee_last_name = '" + textBoxLastName.Text + "', employee_sector = '" + textBoxSector.Text + "', employee_email = '" + textBoxEmail.Text + "', employee_address = '" + textBoxAddress.Text + "', employee_gender = '" + gender + "', employee_ToS = '" + agreedToS + "', employee_note = '" + textBoxNote.Text + "', start_date = '" + startDate + "' where employee_id = '"+id+"'", con);
+                cmd = new SqlCommand("update Employee set employee_first_name = '"+textBoxFirstname.Text+ "', employee_last_name = '" + textBoxLastName.Text + "', employee_sector = '" + textBoxSector.Text + "', employee_email = '" + textBoxEmail.Text + "', employee_address = '" + textBoxAddress.Text + "', employee_gender = '" + gender + "', employee_ToS = '" + agreedToS + "', employee_note = '" + textBoxNote.Text + "', start_date = '" + startDate + "', employee_password = '" + textBoxPassword.Text + "', employee_username = '" + textBoxUsername.Text + "' , account_type = '" + comboBoxType.SelectedItem.ToString() + "' , account_status = '" + comboBoxStatus.SelectedItem.ToString() + "' where employee_id = '" + id+"'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 display();
@@ -277,6 +287,14 @@ namespace EmployeeManagementSystem
             catch (Exception ea)
             {
                 MessageBox.Show(ea.Message);
+            }
+        }
+
+        private void dataGridViewRegister_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 10 && e.Value != null)
+            {
+                e.Value = new string('*', e.Value.ToString().Length);
             }
         }
     }
